@@ -1,13 +1,17 @@
-from flask import Flask, request
-app = Flask(__name__)
+from flask import Flask, request, render_template
 import redis
 import random, string
 
 url = "http://localhost:5000"
 r = redis.Redis()
+app = Flask(__name__)
 
 random_char = lambda : random.choice(string.ascii_uppercase + string.digits)
 random_string = lambda x : ''.join(random_char() for x in range(x))
+
+@app.route("/index.html")
+def index():
+    return render_template('index.html')
 
 @app.route("/create/", methods=['POST',])
 def create():
