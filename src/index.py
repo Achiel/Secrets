@@ -5,10 +5,10 @@ import random, string
 
 url = "http://localhost:5000"
 r = redis.Redis()
-r.set('foo', 'bar')
 
 random_char = lambda : random.choice(string.ascii_uppercase + string.digits)
 random_string = lambda x : ''.join(random_char() for x in range(x))
+
 @app.route("/create/", methods=['POST',])
 def create():
     key = random_string(50)
@@ -20,7 +20,6 @@ def create():
 
 @app.route("/get/<key>")
 def retrieve(key=None):
-    print key
     if not key or not r.get(key):
         return "key not found"
     
