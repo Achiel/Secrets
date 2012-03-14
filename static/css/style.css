@@ -1,0 +1,38 @@
+body {
+    color: #bbb;
+    font: 14pt/20pt Garamond, Georgia, serif;
+    background: #333;
+}
+#content {
+    width: 480px;
+    margin: 20% auto auto;
+    align: center;
+}
+input.text {
+    border: solid 5px #25587E;
+    height: 25px;
+    width: 350px;
+}
+hr {
+    width: 270px;
+    margin: 15px 0;
+    opacity: 0.3;
+    filter:alpha(opacity=30);
+}
+a {
+    color: #bbb;
+    text-decoration: none;
+}
+input {
+    background-color: #ccc;
+    font: 14pt/20pt Garamond, Georgia, serif;
+}
+input.submit {
+    background: none!important;
+    border: none; 
+    padding: 0!important;
+    border-bottom: 0px; 
+    color: #bbb;
+    cursor: pointer; cursor: hand 
+}
+
