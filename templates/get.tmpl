@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<center>
+{% if secret %}
+    <p>
+      Your secret is:
+      <div class="secret"> 
+        {{ secret }} 
+      </div> 
+    </p>
+    <p>
+      Note that you will only be able to view this secret once. The next time you visit this page the secret will not be shown, as it has been deleted from this server. 
+    </p>
+{% else %}
+    <p> 
+      That secret doesn't exist (anymore). If you are sure that this URL should be valid, notify the person you have received the link from. A third party may have intercepted the secret.
+    </p>
+{% endif %}
+</center>
+{% endblock %}
+

@@ -4,7 +4,7 @@ body {
     background: #333;
 }
 #content {
-    width: 480px;
+    width: 740px;
     margin: 20% auto auto;
     align: center;
 }
@@ -36,3 +36,12 @@ input.submit {
     cursor: pointer; cursor: hand 
 }
 
+.secret {
+    backgound-color: red;
+    color: orange;
+}
+
+.secret_url {
+    color: black;
+    background-color: #ccc;
+}
