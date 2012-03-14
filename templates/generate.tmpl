@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <center>
-    <p>Thank you for using our password exchange to generate a secure password.<br/>
-      Your password: 
+    <p>Thank you for using our secret exchange to generate a secure secret.<br/>
+      Your secret: 
       <div class="secret"> 
         {{ generated }} 
       </div> 
@@ -13,6 +13,6 @@
         {{ url }} 
       </div> 
     </p>
-<p> Please note that you will only be able to retrieve this password once. </p>
+<p> Please note that you will only be able to retrieve this secret once. </p>
 </center>
 {% endblock %}
