@@ -27,8 +27,13 @@ def create():
     secret = request.form['secret']
     if not secret: 
         secret = random_string(20)
+        generated = True
     r.set(key, secret)
     secret_url = "%s/get/%s" % (host, key)
+
+    if generated:
+        return render_template('generate.tmpl', generated=secret, url=secret_url)
+        
     return render_template('created.tmpl', url=secret_url)
 
 @app.route("/generate")
