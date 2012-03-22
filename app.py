@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect
 import redis
 import random, string, os
 
-host = "http://localhost:5000"
+host = "http://secrets.mendix.com"
 r = redis.Redis()
 app = Flask(__name__)
 
@@ -28,6 +28,8 @@ def create():
     if not secret: 
         secret = random_string(20)
         generated = True
+    else:
+        generated = False
     r.set(key, secret)
     secret_url = "%s/get/%s" % (host, key)
 
