@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect
 import redis
 import random, string, os
 
-host = "http://secrets.mendix.com"
+host = "https://secrets-accp.mendix.com"
 r = redis.Redis()
 app = Flask(__name__)
 
