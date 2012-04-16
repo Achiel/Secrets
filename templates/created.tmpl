@@ -7,6 +7,30 @@
         {{ url }} 
       </div> 
     </p>
+    <p>Copy URL to clipboard:
+        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                width="110"
+                height="14"
+                id="clippy" >
+        <param name="movie" value="/static/clippy.swf"/>
+        <param name="allowScriptAccess" value="always" />
+        <param name="quality" value="high" />
+        <param name="scale" value="noscale" />
+        <param NAME="FlashVars" value="text={{ url }}">
+        <param name="bgcolor" value="#333333">
+        <embed src="/static/clippy.swf"
+               width="110"
+               height="14"
+               name="clippy"
+               quality="high"
+               allowScriptAccess="always"
+               type="application/x-shockwave-flash"
+               pluginspage="http://www.macromedia.com/go/getflashplayer"
+               FlashVars="text={{ url }}"
+               bgcolor="#333333"
+        />
+        </object>
+    </p>
     <p> Please note that you will only be able to retrieve this secret once. </p>
 </center>
 {% endblock %}
