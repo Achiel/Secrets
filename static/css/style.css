@@ -4,7 +4,7 @@ body {
     background: #333;
 }
 #content {
-    width: 840px;
+    width: 860px;
     margin: 20% auto auto;
     align: center;
 }
@@ -44,4 +44,10 @@ input.submit {
 .secret_url {
     color: black;
     background-color: #ccc;
+}
+
+.copy {
+    text-align: right;
+    margin-top: 2px;
+    margin-right: -96px;
 }
