@@ -26,9 +26,12 @@ Deployment
 Supervisor, fastCGI with Nginx:
 
 Tell `flup` to bind to TCP localhost:3000 in `secrets.fcgi`:
+```python
     WSGIServer(app, bindAddress=('127.0.0.1',3000)).run()
+```
 
-Setup a supervisor config. e.g. `/etc/supervisor/conf.d/secrets.conf`:
+Setup a supervisor config e.g. `/etc/supervisor/conf.d/secrets.conf`:
+```
     [program:secrets]
     user=secretst
     command=/srv/www/secrets.example.org/venv/bin/python src/secrets.fcgi
@@ -37,8 +40,10 @@ Setup a supervisor config. e.g. `/etc/supervisor/conf.d/secrets.conf`:
     directory=/srv/www/secrets.example.org/
     stopsignal=KILL
     umask=022
+```
 
 Nginx site config e.g. `/etc/nginx/conf.d/secrets.conf`:
+```nginx
     server {
         listen [::]:80;
         server_name secrets.example.org;
@@ -52,6 +57,7 @@ Nginx site config e.g. `/etc/nginx/conf.d/secrets.conf`:
             fastcgi_pass localhost:3002;
         }
     }
+```
 
 You can also stick with file socket instead of TCP. It is also recommended to set password for redis-server.
 
