@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, escape
 import redis
 import random
 import string
@@ -56,7 +56,7 @@ def generate():
 
 @app.route("/get/<key>")
 def retrieve(key=None):
-    secret = r.get(key)
+    secret = escape(r.get(key))
     r.delete(key)
     return render_template('get.tmpl', secret=secret)
 
