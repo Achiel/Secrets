@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template, redirect
 import redis
-import random, string, os
+import random
+import string
+import os
 
 host = "https://secrets-accp.mendix.com"
 r = redis.Redis()
