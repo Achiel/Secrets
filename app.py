@@ -3,6 +3,7 @@ import redis
 import random
 import string
 import os
+import types
 
 host = "https://secrets-accp.mendix.com"
 r = redis.Redis()
@@ -56,8 +57,10 @@ def generate():
 
 @app.route("/get/<key>")
 def retrieve(key=None):
-    secret = escape(r.get(key))
+    secret = (r.get(key)
     r.delete(key)
+    if type(secret) == types.StringType:
+        secret = escape(secret)
     return render_template('get.tmpl', secret=secret)
 
 if __name__ == "__main__":
