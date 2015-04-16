@@ -35,7 +35,8 @@ def create():
         generated = True
     else:
         generated = False
-    r.set(key, secret)
+    while not r.setnx(key, secret):
+        key = random_string(redis_key_length)
     secret_url = "%s/get/%s" % (host, key)
 
     if generated:
@@ -57,9 +58,9 @@ def generate():
 
 @app.route("/get/<key>")
 def retrieve(key=None):
-    secret = (r.get(key)
+    secret = r.get(key)
     r.delete(key)
-    if type(secret) == types.StringType:
+    if type(secret) != types.NoneType:
         secret = escape(secret)
     return render_template('get.tmpl', secret=secret)
 
